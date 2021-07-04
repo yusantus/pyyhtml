@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as readme:
 
 setup(
     name = "pyyhtml",
-    version = "0.0.2",    
+    version = "0.0.3",    
     description = "A simple HTML pseudo for Python",
     project_urls={
         "GitHub": "https://github.com/yusantus/pyyhtml",
