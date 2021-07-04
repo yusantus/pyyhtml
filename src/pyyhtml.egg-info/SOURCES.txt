@@ -1,0 +1,7 @@
+LICENSE
+README.md
+setup.py
+src/pyyhtml.egg-info/PKG-INFO
+src/pyyhtml.egg-info/SOURCES.txt
+src/pyyhtml.egg-info/dependency_links.txt
+src/pyyhtml.egg-info/top_level.txt
