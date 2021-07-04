@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", "r", encoding="utf-8") as readme:
     long_description = readme.read()
@@ -8,6 +8,8 @@ setup(
     version = "0.0.6",    
     description = "A simple HTML pseudo for Python",
     py_modules = ["pyyhtml"],
+    package_dir = {"": "src"},
+    packages = find_packages(),
     project_urls={
         "GitHub": "https://github.com/yusantus/pyyhtml",
         "yusantus": "https://www.yusantus.de"
