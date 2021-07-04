@@ -42,6 +42,7 @@ class tag:
         for key, value in self.kwargs.items():
             if key == "klass":
                 key = "class"
+            key = key.replace("_", "-")
             options += ' %s="%s"' % (key, value)
         tag = f"<{self.tagname}" + options + ">"
         return tag

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pyyhtml
-Version: 0.0.6
+Version: 0.0.7
 Summary: A simple HTML pseudo for Python
 Home-page: https://github.com/yusantus/pyyhtml
 Author: Yusuf Emre Samur
@@ -56,6 +56,7 @@ Description: # Table of content:
         ```
         
         The ```get_html_list()``` function returns a list with all objects and it's child objects.
+        
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
