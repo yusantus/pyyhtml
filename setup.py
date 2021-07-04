@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as readme:
 
 setup(
     name = "pyyhtml",
-    version = "0.0.7",    
+    version = "0.0.8",    
     description = "A simple HTML pseudo for Python",
     py_modules = ["pyyhtml"],
     packages = find_packages(),
