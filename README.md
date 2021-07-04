@@ -7,7 +7,7 @@
 Easily create HTML Files with Python. The usage is more simple and efficient as the usual HTML. 
 
 # Installation
-Install **pyyhtml** with ````pip install pyyhtml```
+Install **pyyhtml** with ```pip install pyyhtml```
 
 # How-to
 Import all from **pyyhtml** package and start creating your first HTML File with **pyyhtml**.
