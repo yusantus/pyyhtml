@@ -3,7 +3,7 @@ pyyhtml.
 
 A simple HTML pseudo for Python.
 """
-__version__ = "0.0.3"
+__version__ = "0.0.5"
 __author__ = "Yusuf Emre Samur"
 
 

@@ -1,12 +1,11 @@
 from setuptools import setup
-import setuptools
 
 with open("README.md", "r", encoding="utf-8") as readme:
     long_description = readme.read()
 
 setup(
     name = "pyyhtml",
-    version = "0.0.3",    
+    version = "0.0.5",    
     description = "A simple HTML pseudo for Python",
     project_urls={
         "GitHub": "https://github.com/yusantus/pyyhtml",
@@ -22,7 +21,5 @@ setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-    ],
-    package_dir={"": "src"},
-    packages=setuptools.find_packages(where="src")
+    ]
 )
