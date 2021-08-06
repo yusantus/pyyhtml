@@ -5,7 +5,8 @@
 - [Components](#Components)
 - [Project](#Project)
 
-# Why pyyhtml
+# Introduction
+### Why pyyhtml
 - simpler than HTML
 - create Projects with automatically generated docstrings for your source files
 - create dynamic Template classes once and use multiple times for better productivity
