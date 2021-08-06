@@ -1,9 +1,10 @@
-from .interfaces import FromFile
+from pyyhtml.content import FromFile
+from pyyhtml.comment import comment
 
 class tag:
     def __init__(self, tagname: str, components = None, dont_close: bool = False, *args, **kwargs):
         if not tagname:
-            raise Exception("tagname can't be empty.")
+            raise Exception("tagname can't be empty!")
         self.tagname = tagname
 
         if dont_close and components:
@@ -32,6 +33,11 @@ class tag:
                     self.add(component)
                 else:
                     raise Exception("Only can add tags.")
+        elif isinstance(other, Template):
+            self.add(other.get_tag())
+            
+        elif isinstance(other, comment):
+            self.add(other.get_text())
         else:
             raise Exception("Only can add tags.")
             
@@ -52,10 +58,15 @@ class tag:
         for component in self.components:
             if type(component) is tag or isinstance(component, tag):
                 html_list.extend(component.get_html_list())
-            elif isinstance(component, FromFile):
+            elif type(component) is FromFile:
                 html_list.extend(component.get_content_list())
             else:
                 html_list.append(component)
         if not self.dont_close:
             html_list.append(f"</{self.tagname}>")
         return html_list
+
+
+class Template(tag):
+    def __init__(self, tag):
+        super().__init__(tagname=tag.tagname, components=tag.components, dont_close = tag.dont_close, *{}, **tag.kwargs)

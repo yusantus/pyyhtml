@@ -3,11 +3,12 @@ pyyhtml.
 
 A simple HTML pseudo for Python.
 """
-__version__ = "0.0.13"
+__version__ = "0.0.18"
 __author__ = "Yusuf Emre Samur"
 
-
-
-from .components import *
-from .content import *
-from .fileio import write_list_to_file
+from . import comment
+from . import components
+from . import content
+from . import fileio
+from . import project
+from . import tag

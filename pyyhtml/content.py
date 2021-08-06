@@ -1,9 +1,6 @@
-from .interfaces import FromFile
-
-
-class FromTXT(FromFile):
+class FromFile:
     def __init__(self, filepath, new_lines = False):
-        super().__init__(filepath)
+        self.filepath = filepath
         with open(self.filepath, "r") as readfile:
             self.lines = readfile.readlines()
             if new_lines:

@@ -34,6 +34,27 @@ class title(tag):
     def __init__(self, components = None, *args, **kwargs):
         super().__init__("title", components, *args, **kwargs)
 
+class style(tag):
+    def __init__(self, components = None, *args, **kwargs):
+        super().__init__("style", components, *args, **kwargs)
+
+class button(tag):
+    def __init__(self, components = None, *args, **kwargs):
+        super().__init__("button", components, *args, **kwargs)
+
+class span(tag):
+    def __init__(self, components = None, *args, **kwargs):
+        super().__init__("span", components, *args, **kwargs)
+
+class ul(tag):
+    def __init__(self, components = None, *args, **kwargs):
+        super().__init__("ul", components, *args, **kwargs)
+
+class li(tag):
+    def __init__(self, components = None, *args, **kwargs):
+        super().__init__("li", components, *args, **kwargs)
+
+
 
 ## open brackets
 
@@ -48,3 +69,4 @@ class meta(tag):
 class link(tag):
     def __init__(self, *args, **kwargs):
         super().__init__("link", dont_close=True, *args, **kwargs)
+        

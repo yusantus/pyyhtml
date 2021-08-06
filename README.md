@@ -1,48 +1,84 @@
 # Table of content:
 - [Introduction](#Introduction)
 - [Installation](#Installation)
-- [How-to](#How-to)
+- [Project Structure](#Project-Structure)
+- [Components](#Components)
+- [Project](#Project)
 
-# Introduction
-Easily create HTML Files with Python. The usage is more simple and efficient as the usual HTML. 
+# Why pyyhtml
+- simpler than HTML
+- create Projects with automatically generated docstrings for your source files
+- create dynamic Template classes once and use multiple times for better productivity
+- use Python loops, functions etc. for faster development
 
 # Installation
 Install **pyyhtml** with ```pip install pyyhtml```
 
-# How-to
-Import all from **pyyhtml** package and start creating your first HTML File with **pyyhtml**.
-You can add options to HTML elements via keyword arguments in Python.
-```py
-from pyyhtml import *
-myhtml = html(lang="en") # options via keyword arguments
+# Project Structure
+```
+/
+|
+|--- content/
+|
+|--- pages/
+|
+|--- templates/
+|
+|--- web/
+|     |
+|     |--- assets/
+|     |
+|
+|--- main.py
 ```
 
-Every object has a list, containing objects. You can add objects to an object via:
+- **content/**: Here you can store plain text files which you want to include in your website or some configuration JSON's.
+- **pages/**: Create your Python source files here.
+- **templates/**: Write your templates in this folder.
+- **web/**: After creating your HTML source files, they will appear in the **web/** folder. Also store your assets in the subfolder. Later you can use the **web** folder as your ready website.
+
+# Components
+## Pyyhtml components:
+
+**```pyyhtml.tag.tag```**:
+-  Create simple HTML tag's, often used tags are stored in ```pyyhtml.components```.
+- you can create a tag and place other tags as inner components with ```tag.add(other_tag)``` or just use the ```+=``` operator: ```mytag += oher_tag```
+
+**```pyyhtml.tag.Template```**:
+- Create your Template, create your own class and derive from ```pyyhtml.tag.Template```, for example a Template Navbar: 
 ```py
-myhead = head()
-myhead.add(title("Title of your website")) # add objects
+class TemplateNavbar(Template):
+    def __init__(self, title: str, navbar_logo_path: str = None, links: list = None):
+        navbar = tag("nav", ...)
+        for link in links:
+            navbar += ...
+        super().__init__(tag=navbar)
 ```
 
-You can also use the ```+=``` operator to add objects, also you can add multiple objects in a list:
+**```pyyhtml.content.FromFile```**:
+- outsource text in files and use ````pyyhtml.content.FromFile``` to place the content of text files in your HTML
+- better and cleaner code with less plain text
+- use the file path as parameter:
 ```py
-mybody = body()
-mybody += [p("I'm a paragraph"), br(), a("I'm a link")]
+FromFile("yourtext.txt")
 ```
 
-If you want nice and clean code, keep long texts in text files and import them via ```FromTXT```:
-```py
-mybody += div(FromTXT("text.txt"), klass="container")
-```
+# Project
 
-Not every HTML element is supported, if you want cutsom tags, use the ```tag``` object:
+Start your first project in the ```main.py```, you can add an **Author**, **E-Mail**, **GitHub Username**, **Year**, **License** and **Copyright** to your project. Pyyhtml will add a docstring with your information to all HTML source files.
 ```py
-mybody += tag("span", "I'm a custom span.")
-```
+from pyyhtml.project import Project
 
-Finally add the head and body to you HTML and create your first HTML file with:
-```py
-myhtml += [myhead, mybody]
-write_list_to_file("index.html", myhtml.get_html_list())
-```
+# import your python page files
+import pages
 
-The ```get_html_list()``` function returns a list with all objects and it's child objects.
+# add your information to th eproject
+p = Project(author="John Doe")
+
+# add the html tags of your python files and your filename
+p.add(pages.index.html, "index.html")
+p.add(pages.aboutus.html, "aboutus.html")
+
+# create source files in the web folder
+p.create(path="web/")
+```
